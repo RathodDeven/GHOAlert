@@ -1,19 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-const withPWA = require('@ducanh2912/next-pwa').default({
-  dest: 'public',
-  cacheOnFrontEndNav: true,
-  aggressiveFrontEndNavCaching: true,
-  reloadOnOnline: true,
-  swcMinify: true,
-  // disable: process.env.NODE_ENV === 'development',
-  disable: false,
-  workboxOptions: {
-    disableDevLogs: true
-  }
-  // ... other options you like
-})
-
 const nextConfig = {
   images: {
     domains: ['images.unsplash.com', 'cdn.stamp.fyi']
@@ -25,5 +11,4 @@ const nextConfig = {
   }
 }
 
-module.exports = withPWA(nextConfig)
-// module.exports = nextConfig
+module.exports = nextConfig

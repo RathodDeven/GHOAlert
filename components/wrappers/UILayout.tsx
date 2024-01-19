@@ -20,12 +20,14 @@ const inter = Inter({ subsets: ['latin'] })
 const UILayout: React.FC<Props> = (props) => {
   // Define the component's logic and rendering here
   return (
-    <div className={clsx(inter.className, 'bg-p-bg text-p-text')}>
-      <div className="relative z-10 overflow-auto">
-        <TopHeader />
-        <div className="flex flex-col items-center justify-center py-10 ">
-          {props.children}
-        </div>
+    <div
+      className={clsx(
+        inter.className,
+        'bg-p-bg text-p-text w-screen h-screen overflow-hidden'
+      )}
+    >
+      <div className="flex flex-col items-center justify-center py-10 ">
+        {props.children}
       </div>
     </div>
   )
