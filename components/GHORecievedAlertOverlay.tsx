@@ -22,7 +22,7 @@ const GHORecievedAlertOverlay = ({
 }) => {
   const [props, set] = useSpring(() => ({ scale: 0 }))
   const [textProps, setText] = useSpring(() => ({ opacity: 0, marginTop: 50 }))
-  const [toShowAddress, setAddress] = React.useState<string>('rathod')
+  const [toShowAddress, setAddress] = React.useState<string>('0x0000..')
   const [value, setValue] = React.useState<string>('10')
 
   const handleListener = async (events: any) => {
