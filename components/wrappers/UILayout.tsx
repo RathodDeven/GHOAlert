@@ -3,7 +3,6 @@ import clsx from 'clsx'
 import React from 'react'
 
 import { Inter } from 'next/font/google'
-import TopHeader from '@/components/pages/all/TopHeader'
 
 import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'

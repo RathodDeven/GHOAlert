@@ -8,7 +8,9 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import PlayArrowIcon from '@mui/icons-material/PlayArrow'
 import { useAccount } from 'wagmi'
 import toast from 'react-hot-toast'
+import GHORecievedAlertOverlay from '../../components/GHORecievedAlertOverlay'
 const Dashboard = () => {
+  const [emulate, setEmulate] = React.useState(false)
   const { push } = useRouter()
   const { address } = useAccount()
   const handleLiveGhoCopy = () => {
@@ -51,7 +53,7 @@ const Dashboard = () => {
         <div>
           <div className="text-s-text font-bold">Preview</div>
           <div className="bg-s-bg w-[300px] h-[50px] rounded-md shadow-lg border-dotted border-s-text">
-            <GHOLIveCounterOverlay isPreview />
+            <GHOLIveCounterOverlay address={address} isPreview />
           </div>
           {/* a box for preview */}
         </div>
@@ -74,7 +76,9 @@ const Dashboard = () => {
             </Button>
             <Button
               variant="contained"
-              onClick={handleLiveGhoCopy}
+              onClick={() => {
+                setEmulate(true)
+              }}
               startIcon={<PlayArrowIcon />}
             >
               EMULATE
@@ -84,8 +88,13 @@ const Dashboard = () => {
         <div>
           <div className="text-s-text font-bold">Preview</div>
           {/* a box for preview */}
-          <div className="bg-s-bg w-[300px] h-[50px] rounded-md shadow-lg border-dotted border-s-text">
-            <GHOLIveCounterOverlay isPreview />
+          <div className="bg-s-bg w-[500px] h-[300px] rounded-md shadow-lg border-dotted border-s-text pt-2">
+            <GHORecievedAlertOverlay
+              emulate={emulate}
+              setEmulate={setEmulate}
+              address={address}
+              isPreview
+            />
           </div>
         </div>
       </div>

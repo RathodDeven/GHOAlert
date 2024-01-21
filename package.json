@@ -43,6 +43,7 @@
   "dependencies": {
     "@fontsource/roboto": "^5.0.8",
     "connectkit": "^1.6.0",
-    "react-hot-toast": "^2.4.1"
+    "react-hot-toast": "^2.4.1",
+    "react-spring": "^9.7.3"
   }
 }
