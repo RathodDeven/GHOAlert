@@ -1,35 +1,38 @@
 'use client'
 import './globals.css'
-import { APP_NAME } from '../utils/config'
-import CelebrationIcon from '@mui/icons-material/Celebration'
-import { Button } from '@mui/material'
-import SendIcon from '@mui/icons-material/Send'
 import TopHeader from '../components/pages/all/TopHeader'
-
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import GHOBox from '../components/GHOBox'
 export default function Home() {
   return (
-    <div>
+    <div className="w-full h-full bg-p-bg">
       <TopHeader />
-      <div className="text-xl font-bold py-10">Your Project : {APP_NAME} </div>
-      <div className="text-xl font-bold py-10">
-        Mui Icon :{' '}
-        <div className="text-blue-400">
-          <CelebrationIcon />
-        </div>{' '}
+      <div className="p-14">
+        <div className="between-row">
+          <div className="space-y-12 w-[550px]">
+            <div className="text-7xl font-bold">
+              Pushing GHO adoption for Streamers
+            </div>
+            <div className="space-y-4">
+              <div className="font-semibold text-xl start-row gap-x-2">
+                <ArrowForwardIcon className="pt-1" />
+                <div>
+                  Easy to integrate Stream Overlays For GHO related alerts
+                </div>
+              </div>
+              <div className="font-semibold text-xl start-row gap-x-2">
+                <ArrowForwardIcon className="pt-1" />
+                <div>Works on any Streaming Software</div>
+              </div>
+              <div className="font-semibold text-xl start-row gap-x-2">
+                <ArrowForwardIcon className="pt-1" />
+                <div>No Installation Required</div>
+              </div>
+            </div>
+          </div>
+          <GHOBox />
+        </div>
       </div>
-      <div className="text-xl font-bold py-10">
-        Mui Button:
-        <>
-          <Button variant="contained" endIcon={<SendIcon />}>
-            Send
-          </Button>
-        </>
-      </div>
-      <div className="text-xl font-bold py-10 bg-s-bg">Your Project </div>
-      <div className="text-xl font-bold py-10">Your Project </div>
-      <div className="text-xl font-bold py-10">Your Project </div>
-      <div className="text-xl font-bold py-10">Your Project </div>
-      <div className="text-xl font-bold py-10">Your Project </div>
     </div>
   )
 }

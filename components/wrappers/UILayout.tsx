@@ -9,6 +9,7 @@ import '@fontsource/roboto/300.css'
 import '@fontsource/roboto/400.css'
 import '@fontsource/roboto/500.css'
 import '@fontsource/roboto/700.css'
+import { Toaster } from 'react-hot-toast'
 
 interface Props {
   // Define any props that the component will accept
@@ -20,15 +21,9 @@ const inter = Inter({ subsets: ['latin'] })
 const UILayout: React.FC<Props> = (props) => {
   // Define the component's logic and rendering here
   return (
-    <div
-      className={clsx(
-        inter.className,
-        'bg-p-bg text-p-text w-screen h-screen overflow-hidden'
-      )}
-    >
-      <div className="flex flex-col items-center justify-center py-10 ">
-        {props.children}
-      </div>
+    <div className={clsx('h-[100vh]', inter.className)}>
+      <Toaster position="top-center" />
+      {props.children}
     </div>
   )
 }

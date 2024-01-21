@@ -6,6 +6,12 @@
   html {
     font-family: 'Source Sans Pro', sans-serif;
   }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }
 
 @layer components {
@@ -14,10 +20,10 @@
   }
 
   .start-row {
-    @apply flex flex-row items-center justify-start;
+    @apply flex flex-row items-start justify-start;
   }
 
-  .space-between-row {
+  .between-row {
     @apply flex flex-row items-center justify-between;
   }
 

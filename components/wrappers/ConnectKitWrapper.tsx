@@ -1,9 +1,6 @@
 import { WagmiConfig, createConfig } from 'wagmi'
-import {
-  ConnectKitProvider,
-  ConnectKitButton,
-  getDefaultConfig
-} from 'connectkit'
+import { ConnectKitProvider, getDefaultConfig } from 'connectkit'
+import { sepolia } from 'wagmi/chains'
 
 const config = createConfig(
   getDefaultConfig({
@@ -12,6 +9,7 @@ const config = createConfig(
     walletConnectProjectId: String(
       process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID
     ),
+    chains: [sepolia],
 
     // Required
     appName: 'GHOAlert',
@@ -25,7 +23,7 @@ const config = createConfig(
 const ConnectKitWrapper = ({ children }: { children: React.ReactNode }) => {
   return (
     <WagmiConfig config={config}>
-      <ConnectKitProvider theme="soft">{children}</ConnectKitProvider>
+      <ConnectKitProvider theme="midnight">{children}</ConnectKitProvider>
     </WagmiConfig>
   )
 }
