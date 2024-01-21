@@ -20,7 +20,7 @@ const GHORecievedAlertOverlay = ({
   setEmulate?: any
 }) => {
   const [props, set] = useSpring(() => ({ scale: 0 }))
-  const [textProps, setText] = useSpring(() => ({ opacity: 1, marginTop: 50 }))
+  const [textProps, setText] = useSpring(() => ({ opacity: 0, marginTop: 50 }))
   const [toShowAddress, setAddress] = React.useState()
   const [value, setValue] = React.useState<string>('10')
 
@@ -81,7 +81,7 @@ const GHORecievedAlertOverlay = ({
         from: { opacity: 1, marginTop: 0 },
         config: { duration: 500 }
       })
-    }, 2000) // adjust timing as needed
+    }, 2500) // adjust timing as needed
   }
   return (
     <div>
