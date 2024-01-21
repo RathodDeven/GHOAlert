@@ -7,6 +7,7 @@ import {
 import { useContractEvent } from 'wagmi'
 import { useSpring, animated } from 'react-spring'
 import { shortenString } from '../utils/helper-function'
+import { getHandleFromAddress } from '../utils/lens'
 
 const GHORecievedAlertOverlay = ({
   isPreview,
@@ -21,7 +22,7 @@ const GHORecievedAlertOverlay = ({
 }) => {
   const [props, set] = useSpring(() => ({ scale: 0 }))
   const [textProps, setText] = useSpring(() => ({ opacity: 0, marginTop: 50 }))
-  const [toShowAddress, setAddress] = React.useState()
+  const [toShowAddress, setAddress] = React.useState<string>('rathod')
   const [value, setValue] = React.useState<string>('10')
 
   const handleListener = async (events: any) => {
@@ -30,7 +31,10 @@ const GHORecievedAlertOverlay = ({
       const fromAddress = event?.args?.from?.toLowerCase()
       const value = event?.args?.value
 
-      setAddress(fromAddress)
+      const handle = await getHandleFromAddress(fromAddress)
+
+      if (handle) setAddress(handle.replace('lens/', ''))
+      else setAddress(fromAddress)
       const newValue = Number(Number(value) / 10 ** 18)
 
       setValue(newValue.toFixed(2))
@@ -108,7 +112,7 @@ const GHORecievedAlertOverlay = ({
             marginTop: textProps.marginTop.to((marginTop) => `${marginTop}px`)
           }}
         >
-          {shortenString(toShowAddress ?? 'lens/rathod', 15)} tipped {value} GHO
+          {shortenString(toShowAddress ?? '0x0000', 15)} tipped {value} GHO
         </animated.div>
       </div>
     </div>
